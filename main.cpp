@@ -182,10 +182,11 @@ void introsort(int *array, int left, int right, int M){
 }
 
 int main() {
+    bool test1=1,test2=1,test3=1;
    fstream plik;
    plik.open("dane.txt", ios::out);
    for(int i=0;i<100;i++){
-	int size=1000000;
+	int size=10000;
 	int r;
 	int *arr=new int[size];
 	int *arr1=new int[size];
@@ -195,8 +196,7 @@ int main() {
 		r=rand();
 	arr[i]=arr1[i]=arr2[i]=r;
 	}
-	vector<int> v(arr1,arr1+size);
-	make_heap(v.begin(),v.end());
+
 
 	auto start = chrono::steady_clock::now(); //use auto keyword to minimize typing strokes :)
 	quick_sort(arr,0,size-1);
@@ -217,7 +217,26 @@ int main() {
 				auto diff2 = end2 - start2;
 				//cout<<"Elapsed time is :  "<< chrono::duration_cast<chrono::nanoseconds>(diff2).count()<<endl;
 				//while(chrono::duration_cast<chrono::microseconds>(diff2).count()==0){
-				plik<< chrono::duration_cast<chrono::microseconds>(diff).count()<<" "<<chrono::duration_cast<chrono::microseconds>(diff1).count()<<" "<<chrono::duration_cast<chrono::microseconds>(diff2).count()<<endl;
+				for(int i=size;i>0;i++){
+                    if(arr[size-1]<arr[size-2]){
+                        test1=0;}
+                        if(arr1[size-1]<arr1[size-2]){
+                        test2=0;}
+                            if(arr2[size-1]<arr[size-2]){
+                            test3=0;}
+				}
+				if(test1){
+				plik<< chrono::duration_cast<chrono::microseconds>(diff).count()<<" ";}
+				else{
+                    plik<<"error ";}
+                if(test2){
+                plik<<chrono::duration_cast<chrono::microseconds>(diff1).count()<<" ";}
+                else{
+                plik<<"error ";}
+                    if(test3){
+				plik<<chrono::duration_cast<chrono::microseconds>(diff2).count()<<endl;}
+				else{
+                    plik<<"error"<<endl;}
 				}
 
 
