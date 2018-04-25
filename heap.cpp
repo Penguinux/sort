@@ -4,7 +4,7 @@ using namespace std;
 template <typename T>
 void heapify(T array[], int begin, int end, int i, bool f)
 {
-    int larg = begin + i;
+    int larg = begin+i ;
     int left = begin + (2*i) + 1;
     int right = begin + (2*i) + 2;
     if(f){

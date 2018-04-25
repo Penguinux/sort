@@ -3,6 +3,8 @@
 #ifndef SORT_H_
 #define SORT_H_
 #include <algorithm>
+// if flag == 1 soring is normal, if flag ==1 reverse sorting
+
 template<typename T>
 void merge(T array[], int left, int middle, int right, bool f);
 template<typename T>
