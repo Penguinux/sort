@@ -3,7 +3,11 @@
 using namespace std;
 template<typename T>
 void merge(T array[], int left, int middle, int right, bool f){
+<<<<<<< HEAD
 	T *temp= new T[right+1];
+=======
+	T temp[right];
+>>>>>>> 8567855584ce63e3542cf7cf449df48b086cc4fc
 
 	int i=left, j=middle+1, k=left;
 	for(int i=left; i<=right; i++){
@@ -27,7 +31,10 @@ void merge(T array[], int left, int middle, int right, bool f){
 
 	while (i<=middle) array[k++]=temp[i++];
 
+<<<<<<< HEAD
 delete temp;
+=======
+>>>>>>> 8567855584ce63e3542cf7cf449df48b086cc4fc
 
 }
 
